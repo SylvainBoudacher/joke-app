@@ -27,5 +27,5 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEORKU_SB}}
-          heroku_app_name: "joke-app-SB" #Must be unique in Heroku
+          heroku_app_name: "joke-app-sb" #Must be unique in Heroku
           heroku_email: "sylvain.boudacher@gmail.com"
