@@ -6,37 +6,26 @@ on:
 jobs:
   build-test:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-        -uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: '16'
-
-        -run : npm install
-        -run : npm run build
-
+      - run : npm install
+      - run : npm run build
+      - run : npm test
 
       - name: Echo the name
         run:
           export NAME=Mathias
           echo "Hello ${{ NAME }}"
 
-      name: Deploy
-
-      on:
-        push:
-          branches:
-            - master
-
   deploy:
-
-
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
-          heroku_api_key: 6204fc57-a14e-4f92-882f-5c49a6874667
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "joke-app-SB" #Must be unique in Heroku
           heroku_email: "sylvain.boudacher@gmail.com"
