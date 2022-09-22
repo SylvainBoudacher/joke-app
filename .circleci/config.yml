@@ -4,7 +4,7 @@ orbs:
   node: circleci/node@5.0.2
 
 workflows:
-  build:
+  build-test:
     jobs:
       - node/run:
           npm-run: build
