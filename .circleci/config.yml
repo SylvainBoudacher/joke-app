@@ -14,7 +14,7 @@ workflows:
                 - circleci
 
       - node/test:
-          require:
+          filters:
             branches:
               only:
                 - circleci
