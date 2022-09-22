@@ -12,9 +12,11 @@ workflows:
             branches:
               only:
                 - circleci
-
+    
       - node/test:
-          filters:
-            branches:
-              only:
-                - circleci
+            requires:
+              - "node/run"
+            filters:
+              branches:
+                only:
+                  - circleci
